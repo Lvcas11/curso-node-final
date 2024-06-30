@@ -12,14 +12,16 @@ const port = parseInt(process.env.RENDER_PORT as string) || 1234;
 const sequelize = new Sequelize(database, username, password, {
   dialect: "postgres",
   dialectModule: require("pg"),
+  dialectOptions: {
+    ssl: { rejectUnauthorized: false },
+  },
   host: host,
   port: port,
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false,
-    },
+  define: {
+    charset: 'utf8mb4',
+    collate: 'utf8mb4_general_ci',
   },
+  logging: false,
 });
 
 export default sequelize;
