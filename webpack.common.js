@@ -29,12 +29,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new CopyWebpackPlugin({
-      patterns: [
-        { from: path.resolve(__dirname, 'src/config/.env'), to: '.env' }
-      ]
-    })
-  ]
+  plugins: []
 };
